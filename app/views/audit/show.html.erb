@@ -1,0 +1,26 @@
+<h2>Change log for Election Name: <%=Election.find(params[:id]).name%></h2>
+<table style="width:80%">
+<tr>
+ <th><b>Entity Updated</th>
+ <th><b>Entity ID</th>
+ <th><b>Field Updated</th>
+ <th><b>Old Value</th>
+ <th><b>New Value</th>
+ <th><b>Updated By</th>
+ <th><b>Updated At</b></th>
+ </tr>
+<%@audit_list.each do |audit|%>
+<tr>
+ <td><%=audit.entity%></td>
+ <td><%=audit.entity_id%></td>
+ <td><%=audit.field%></td>
+ <td><%=audit.old_value%></td>
+ <td><%=audit.new_value%></td>
+ <td><%=audit.user.email%></td>
+ <td><%=audit.created_at%></td>
+  </tr>
+<%end%>
+</table>
+<p>
+ <%= link_to 'Back', election_path(params[:id]) %> 
+</p>

@@ -1,7 +1,7 @@
 class ElectionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_election, only: [:show, :edit, :update, :destroy]
-
+  #before_action :audit, only: [:update]
   # GET /elections
   # GET /elections.json
   def index
@@ -72,4 +72,4 @@ class ElectionsController < ApplicationController
     def election_params
       params.require(:election).permit(:name, :start_at, :end_at, :visibility)
     end
-end
+  end
